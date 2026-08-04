@@ -1,0 +1,532 @@
+{
+  "data": [
+    {
+      "id": "page-flow-overview",
+      "title": "整體 UX Flow",
+      "type": "page",
+      "version": 2,
+      "createdAt": 1785835200000,
+      "canvasData": {
+        "x": 84,
+        "y": -36,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1830,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-3d6e5517",
+          "measuredAt": 1785837282651
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/flow-overview.html",
+        "interactions": [
+          {
+            "domId": "go-landing",
+            "event": "click",
+            "targetPageId": "page-landing"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-landing",
+      "title": "首頁 Landing",
+      "type": "page",
+      "version": 2,
+      "createdAt": 1785835200001,
+      "canvasData": {
+        "x": 60,
+        "y": 528,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1627,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-92e60406",
+          "measuredAt": 1785837282651
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/landing.html",
+        "interactions": [
+          {
+            "domId": "cta-login",
+            "event": "click",
+            "targetPageId": "page-login"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-login",
+      "title": "電郵登入",
+      "type": "page",
+      "version": 2,
+      "createdAt": 1785835200002,
+      "canvasData": {
+        "x": 516,
+        "y": 0,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 848,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-ea27aefd",
+          "measuredAt": 1785837282651
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/login.html",
+        "interactions": [
+          {
+            "domId": "magic-link-sent",
+            "event": "click",
+            "targetPageId": "page-dashboard"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-dashboard",
+      "title": "Project Dashboard",
+      "type": "page",
+      "version": 2,
+      "createdAt": 1785835200003,
+      "canvasData": {
+        "x": 60,
+        "y": 1356,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1037,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-040dc811",
+          "measuredAt": 1785837282651
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/dashboard.html",
+        "interactions": [
+          {
+            "domId": "open-upload",
+            "event": "click",
+            "targetPageId": "page-upload-empty"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-upload-empty",
+      "title": "Upload 空白",
+      "type": "page",
+      "version": 2,
+      "createdAt": 1785835200004,
+      "canvasData": {
+        "x": 936,
+        "y": 1524,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1091,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-c8bdf3d0",
+          "measuredAt": 1785837282651
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/upload-empty.html",
+        "interactions": []
+      }
+    },
+    {
+      "id": "page-upload-ready",
+      "title": "Upload 已上載",
+      "type": "page",
+      "version": 2,
+      "createdAt": 1785835200005,
+      "canvasData": {
+        "x": 492,
+        "y": 1474,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1213,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-b9d666cb",
+          "measuredAt": 1785837282651
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/upload-ready.html",
+        "interactions": [
+          {
+            "domId": "start-analysis",
+            "event": "click",
+            "targetPageId": "page-upload-processing"
+          },
+          {
+            "domId": "credits-blocked",
+            "event": "click",
+            "targetPageId": "page-upload-insufficient-credits"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-upload-processing",
+      "title": "分析中",
+      "type": "page",
+      "version": 2,
+      "createdAt": 1785835200006,
+      "canvasData": {
+        "x": 1428,
+        "y": 1020,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1264,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-7611aaf9",
+          "measuredAt": 1785837282651
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/upload-processing.html",
+        "interactions": [
+          {
+            "domId": "need-review",
+            "event": "click",
+            "targetPageId": "page-extraction-review"
+          },
+          {
+            "domId": "analysis-direct-results",
+            "event": "click",
+            "targetPageId": "page-results-default"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-upload-insufficient-credits",
+      "title": "Credits 不足",
+      "type": "page",
+      "version": 2,
+      "createdAt": 1785835200007,
+      "canvasData": {
+        "x": 972,
+        "y": 1233,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 938,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-3808cc30",
+          "measuredAt": 1785837282651
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/upload-insufficient-credits.html",
+        "interactions": [
+          {
+            "domId": "go-pricing",
+            "event": "click",
+            "targetPageId": "page-pricing-buy-credits"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-extraction-review",
+      "title": "Extraction Review",
+      "type": "page",
+      "version": 2,
+      "createdAt": 1785835200008,
+      "canvasData": {
+        "x": 504,
+        "y": 1007.5,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1450,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-a57db82e",
+          "measuredAt": 1785837282651
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/extraction-review.html",
+        "interactions": [
+          {
+            "domId": "confirm-extraction",
+            "event": "click",
+            "targetPageId": "page-upload-processing"
+          },
+          {
+            "domId": "back-to-upload",
+            "event": "click",
+            "targetPageId": "page-upload-ready"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-results-default",
+      "title": "Results 預設",
+      "type": "page",
+      "version": 2,
+      "createdAt": 1785835200009,
+      "canvasData": {
+        "x": 60,
+        "y": 1007.5,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1051,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-8e22c537",
+          "measuredAt": 1785837282651
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/results-default.html",
+        "interactions": [
+          {
+            "domId": "add-to-shortlist",
+            "event": "click",
+            "targetPageId": "page-shortlist"
+          },
+          {
+            "domId": "switch-to-building-sqft",
+            "event": "click",
+            "targetPageId": "page-results-price-basis"
+          },
+          {
+            "domId": "open-tag-explanation",
+            "event": "click",
+            "targetPageId": "page-results-tag-explanation"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-results-price-basis",
+      "title": "Results 切換價格基準",
+      "type": "page",
+      "version": 2,
+      "createdAt": 1785835200010,
+      "canvasData": {
+        "x": 972,
+        "y": 828,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1259,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-fd71ba9c",
+          "measuredAt": 1785837282651
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/results-price-basis.html",
+        "interactions": [
+          {
+            "domId": "switch-to-net-sqft",
+            "event": "click",
+            "targetPageId": "page-results-default"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-results-tag-explanation",
+      "title": "Results 標籤解釋",
+      "type": "page",
+      "version": 2,
+      "createdAt": 1785835200011,
+      "canvasData": {
+        "x": 960,
+        "y": 0,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1447,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-9ca87df1",
+          "measuredAt": 1785837282651
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/results-tag-explanation.html",
+        "interactions": [
+          {
+            "domId": "return-from-explanation",
+            "event": "click",
+            "targetPageId": "page-results-default"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-results-empty",
+      "title": "Results 無結果",
+      "type": "page",
+      "version": 2,
+      "createdAt": 1785835200012,
+      "canvasData": {
+        "x": 1416,
+        "y": 697.5,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1077,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-fb9e743a",
+          "measuredAt": 1785837282651
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/results-empty.html",
+        "interactions": [
+          {
+            "domId": "return-to-default-results",
+            "event": "click",
+            "targetPageId": "page-results-default"
+          },
+          {
+            "domId": "retry-extraction",
+            "event": "click",
+            "targetPageId": "page-extraction-review"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-shortlist",
+      "title": "心水清單",
+      "type": "page",
+      "version": 2,
+      "createdAt": 1785835200013,
+      "canvasData": {
+        "x": 1416,
+        "y": 297,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1171,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-f971f1f4",
+          "measuredAt": 1785837282651
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/shortlist.html",
+        "interactions": [
+          {
+            "domId": "go-to-shortlist",
+            "event": "click",
+            "targetPageId": "page-results-default"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-pricing-buy-credits",
+      "title": "購買 Credits",
+      "type": "page",
+      "version": 2,
+      "createdAt": 1785835200014,
+      "canvasData": {
+        "x": 972,
+        "y": 468,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 1162,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-a6a97f1d",
+          "measuredAt": 1785837282651
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/pricing-buy-credits.html",
+        "interactions": [
+          {
+            "domId": "pay-success",
+            "event": "click",
+            "targetPageId": "page-payment-success"
+          },
+          {
+            "domId": "pay-cancel",
+            "event": "click",
+            "targetPageId": "page-payment-cancel"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-payment-success",
+      "title": "付款成功",
+      "type": "page",
+      "version": 2,
+      "createdAt": 1785835200015,
+      "canvasData": {
+        "x": 1416,
+        "y": 0,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 817,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-57e92ddf",
+          "measuredAt": 1785837282651
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/payment-success.html",
+        "interactions": [
+          {
+            "domId": "resume-project",
+            "event": "click",
+            "targetPageId": "page-dashboard"
+          }
+        ]
+      }
+    },
+    {
+      "id": "page-payment-cancel",
+      "title": "付款取消",
+      "type": "page",
+      "version": 2,
+      "createdAt": 1785835200016,
+      "canvasData": {
+        "x": 528,
+        "y": 554,
+        "group": 0,
+        "layoutSnapshot": {
+          "version": 1,
+          "contentHeight": 958,
+          "viewportWidth": 1440,
+          "sourceHash": "fnv1a-4c7431fe",
+          "measuredAt": 1785837282651
+        }
+      },
+      "devMetadata": {
+        "htmlSrc": "pages/payment-cancel.html",
+        "interactions": [
+          {
+            "domId": "return-pricing",
+            "event": "click",
+            "targetPageId": "page-pricing-buy-credits"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "autoLayout": false,
+    "deviceType": "desktop",
+    "projectName": "Brickwise 磚研 MVP Wireframe",
+    "visualEditorEnabled": false
+  }
+}

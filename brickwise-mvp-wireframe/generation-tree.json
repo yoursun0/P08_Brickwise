@@ -1,0 +1,333 @@
+{
+  "root": {
+    "nodeId": "gen-project-shell",
+    "kind": "project-shell",
+    "pageIds": [
+      "page-flow-overview",
+      "page-landing",
+      "page-login",
+      "page-dashboard",
+      "page-upload-empty",
+      "page-upload-ready",
+      "page-upload-processing",
+      "page-upload-insufficient-credits",
+      "page-extraction-review",
+      "page-results-default",
+      "page-results-price-basis",
+      "page-results-tag-explanation",
+      "page-results-empty",
+      "page-shortlist",
+      "page-pricing-buy-credits",
+      "page-payment-success",
+      "page-payment-cancel"
+    ],
+    "output": "partials/project-shell.html",
+    "sharedRegions": [
+      "global-header",
+      "frame-background",
+      "card-system",
+      "rationale-footer"
+    ],
+    "privateRegions": [],
+    "mutableSlots": [
+      "pageTitle",
+      "pageContent",
+      "statusMeta"
+    ],
+    "status": "planned",
+    "children": [
+      {
+        "nodeId": "gen-flow-overview",
+        "kind": "page-leaf",
+        "pageIds": ["page-flow-overview"],
+        "output": "pages/flow-overview.html",
+        "sharedRegions": [],
+        "privateRegions": ["flow-map", "coverage-checklist"],
+        "mutableSlots": [],
+        "status": "planned",
+        "children": []
+      },
+      {
+        "nodeId": "gen-public-shell",
+        "kind": "shared-branch",
+        "pageIds": ["page-landing", "page-login"],
+        "output": "partials/public-shell.html",
+        "sharedRegions": [
+          "public-topbar",
+          "hero-intro-grid",
+          "trust-footnote"
+        ],
+        "privateRegions": [],
+        "mutableSlots": [
+          "heroMain",
+          "supportPanel",
+          "bodyModules"
+        ],
+        "status": "planned",
+        "children": [
+          {
+            "nodeId": "gen-page-landing",
+            "kind": "page-leaf",
+            "pageIds": ["page-landing"],
+            "output": "pages/landing.html",
+            "sharedRegions": ["public-topbar", "trust-footnote"],
+            "privateRegions": ["hero-main", "three-step-value", "faq-strip"],
+            "mutableSlots": ["heroMain", "bodyModules"],
+            "status": "planned",
+            "children": []
+          },
+          {
+            "nodeId": "gen-page-login",
+            "kind": "page-leaf",
+            "pageIds": ["page-login"],
+            "output": "pages/login.html",
+            "sharedRegions": ["public-topbar", "trust-footnote"],
+            "privateRegions": ["login-panel", "save-benefits"],
+            "mutableSlots": ["heroMain", "supportPanel", "bodyModules"],
+            "status": "planned",
+            "children": []
+          }
+        ]
+      },
+      {
+        "nodeId": "gen-app-shell",
+        "kind": "shared-branch",
+        "pageIds": [
+          "page-dashboard",
+          "page-upload-empty",
+          "page-upload-ready",
+          "page-upload-processing",
+          "page-upload-insufficient-credits",
+          "page-extraction-review",
+          "page-results-default",
+          "page-results-price-basis",
+          "page-results-tag-explanation",
+          "page-results-empty",
+          "page-shortlist",
+          "page-pricing-buy-credits",
+          "page-payment-success",
+          "page-payment-cancel"
+        ],
+        "output": "partials/app-shell.html",
+        "sharedRegions": [
+          "app-topbar",
+          "project-context-strip",
+          "wireframe-rationale-footer"
+        ],
+        "privateRegions": [],
+        "mutableSlots": [
+          "pageHeader",
+          "mainArea",
+          "secondaryArea"
+        ],
+        "status": "planned",
+        "children": [
+          {
+            "nodeId": "gen-page-dashboard",
+            "kind": "page-leaf",
+            "pageIds": ["page-dashboard"],
+            "output": "pages/dashboard.html",
+            "sharedRegions": ["app-topbar", "project-context-strip"],
+            "privateRegions": ["project-list", "credit-summary"],
+            "mutableSlots": ["pageHeader", "mainArea", "secondaryArea"],
+            "status": "planned",
+            "children": []
+          },
+          {
+            "nodeId": "gen-upload-shell",
+            "kind": "shared-branch",
+            "pageIds": [
+              "page-upload-empty",
+              "page-upload-ready",
+              "page-upload-processing",
+              "page-upload-insufficient-credits"
+            ],
+            "output": "partials/upload-shell.html",
+            "sharedRegions": [
+              "upload-header",
+              "credit-summary-card",
+              "upload-layout"
+            ],
+            "privateRegions": [],
+            "mutableSlots": [
+              "dropzoneArea",
+              "fileListArea",
+              "sideSummary"
+            ],
+            "status": "planned",
+            "children": [
+              {
+                "nodeId": "gen-page-upload-empty",
+                "kind": "page-leaf",
+                "pageIds": ["page-upload-empty"],
+                "output": "pages/upload-empty.html",
+                "sharedRegions": ["upload-header", "credit-summary-card"],
+                "privateRegions": ["empty-dropzone"],
+                "mutableSlots": ["dropzoneArea", "sideSummary"],
+                "status": "planned",
+                "children": []
+              },
+              {
+                "nodeId": "gen-page-upload-ready",
+                "kind": "page-leaf",
+                "pageIds": ["page-upload-ready"],
+                "output": "pages/upload-ready.html",
+                "sharedRegions": ["upload-header", "credit-summary-card"],
+                "privateRegions": ["uploaded-files", "cost-confirmation"],
+                "mutableSlots": ["dropzoneArea", "fileListArea", "sideSummary"],
+                "status": "planned",
+                "children": []
+              },
+              {
+                "nodeId": "gen-page-upload-processing",
+                "kind": "page-leaf",
+                "pageIds": ["page-upload-processing"],
+                "output": "pages/upload-processing.html",
+                "sharedRegions": ["upload-header", "credit-summary-card"],
+                "privateRegions": ["processing-stepper", "return-note"],
+                "mutableSlots": ["dropzoneArea", "fileListArea", "sideSummary"],
+                "status": "planned",
+                "children": []
+              },
+              {
+                "nodeId": "gen-page-upload-insufficient-credits",
+                "kind": "page-leaf",
+                "pageIds": ["page-upload-insufficient-credits"],
+                "output": "pages/upload-insufficient-credits.html",
+                "sharedRegions": ["upload-header", "credit-summary-card"],
+                "privateRegions": ["upgrade-intercept", "return-cta"],
+                "mutableSlots": ["dropzoneArea", "fileListArea", "sideSummary"],
+                "status": "planned",
+                "children": []
+              }
+            ]
+          },
+          {
+            "nodeId": "gen-page-extraction-review",
+            "kind": "page-leaf",
+            "pageIds": ["page-extraction-review"],
+            "output": "pages/extraction-review.html",
+            "sharedRegions": ["app-topbar", "project-context-strip"],
+            "privateRegions": ["table-preview", "mapping-panel", "repair-guidance"],
+            "mutableSlots": ["pageHeader", "mainArea", "secondaryArea"],
+            "status": "planned",
+            "children": []
+          },
+          {
+            "nodeId": "gen-results-shell",
+            "kind": "shared-branch",
+            "pageIds": [
+              "page-results-default",
+              "page-results-price-basis",
+              "page-results-tag-explanation",
+              "page-results-empty"
+            ],
+            "output": "partials/results-shell.html",
+            "sharedRegions": [
+              "results-summary-strip",
+              "sticky-control-bar",
+              "results-layout"
+            ],
+            "privateRegions": [],
+            "mutableSlots": [
+              "controlState",
+              "tableState",
+              "asideState"
+            ],
+            "status": "planned",
+            "children": [
+              {
+                "nodeId": "gen-page-results-default",
+                "kind": "page-leaf",
+                "pageIds": ["page-results-default"],
+                "output": "pages/results-default.html",
+                "sharedRegions": ["results-summary-strip", "sticky-control-bar"],
+                "privateRegions": ["results-table", "shortlist-sidecard"],
+                "mutableSlots": ["controlState", "tableState", "asideState"],
+                "status": "planned",
+                "children": []
+              },
+              {
+                "nodeId": "gen-page-results-price-basis",
+                "kind": "page-leaf",
+                "pageIds": ["page-results-price-basis"],
+                "output": "pages/results-price-basis.html",
+                "sharedRegions": ["results-summary-strip", "sticky-control-bar"],
+                "privateRegions": ["switch-feedback", "recomputed-table"],
+                "mutableSlots": ["controlState", "tableState", "asideState"],
+                "status": "planned",
+                "children": []
+              },
+              {
+                "nodeId": "gen-page-results-tag-explanation",
+                "kind": "page-leaf",
+                "pageIds": ["page-results-tag-explanation"],
+                "output": "pages/results-tag-explanation.html",
+                "sharedRegions": ["results-summary-strip", "sticky-control-bar"],
+                "privateRegions": ["tag-explanation-panel", "explainability-copy"],
+                "mutableSlots": ["controlState", "tableState", "asideState"],
+                "status": "planned",
+                "children": []
+              },
+              {
+                "nodeId": "gen-page-results-empty",
+                "kind": "page-leaf",
+                "pageIds": ["page-results-empty"],
+                "output": "pages/results-empty.html",
+                "sharedRegions": ["results-summary-strip", "sticky-control-bar"],
+                "privateRegions": ["empty-state", "filter-recovery"],
+                "mutableSlots": ["controlState", "tableState", "asideState"],
+                "status": "planned",
+                "children": []
+              }
+            ]
+          },
+          {
+            "nodeId": "gen-page-shortlist",
+            "kind": "page-leaf",
+            "pageIds": ["page-shortlist"],
+            "output": "pages/shortlist.html",
+            "sharedRegions": ["app-topbar", "project-context-strip"],
+            "privateRegions": ["drag-list", "export-box"],
+            "mutableSlots": ["pageHeader", "mainArea", "secondaryArea"],
+            "status": "planned",
+            "children": []
+          },
+          {
+            "nodeId": "gen-page-pricing",
+            "kind": "page-leaf",
+            "pageIds": ["page-pricing-buy-credits"],
+            "output": "pages/pricing-buy-credits.html",
+            "sharedRegions": ["app-topbar", "project-context-strip"],
+            "privateRegions": ["package-cards", "purchase-summary"],
+            "mutableSlots": ["pageHeader", "mainArea", "secondaryArea"],
+            "status": "planned",
+            "children": []
+          },
+          {
+            "nodeId": "gen-page-payment-success",
+            "kind": "page-leaf",
+            "pageIds": ["page-payment-success"],
+            "output": "pages/payment-success.html",
+            "sharedRegions": ["app-topbar", "project-context-strip"],
+            "privateRegions": ["success-message", "return-guidance"],
+            "mutableSlots": ["pageHeader", "mainArea", "secondaryArea"],
+            "status": "planned",
+            "children": []
+          },
+          {
+            "nodeId": "gen-page-payment-cancel",
+            "kind": "page-leaf",
+            "pageIds": ["page-payment-cancel"],
+            "output": "pages/payment-cancel.html",
+            "sharedRegions": ["app-topbar", "project-context-strip"],
+            "privateRegions": ["cancel-message", "recover-actions"],
+            "mutableSlots": ["pageHeader", "mainArea", "secondaryArea"],
+            "status": "planned",
+            "children": []
+          }
+        ]
+      }
+    ]
+  }
+}

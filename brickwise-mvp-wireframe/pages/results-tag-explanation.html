@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brickwise 磚研｜標籤說明</title>
+    <style id="theme-vars">
+:root {
+  --bw-bg: #f5f7fb;
+  --bw-surface: #ffffff;
+  --bw-surface-2: #eef2f7;
+  --bw-ink: #172033;
+  --bw-ink-2: #55627a;
+  --bw-ink-3: #7f8aa0;
+  --bw-line: #d8e0ec;
+  --bw-brand: #3558e6;
+  --bw-brand-ink: #ffffff;
+  --bw-state-success: #198754;
+  --bw-state-warning: #b7791f;
+  --bw-state-error: #c24141;
+  --bw-state-info: #3158d6;
+
+  --bw-background: var(--bw-bg);
+  --bw-foreground: var(--bw-ink);
+  --bw-card: var(--bw-surface);
+  --bw-card-foreground: var(--bw-ink);
+  --bw-popover: var(--bw-surface);
+  --bw-popover-foreground: var(--bw-ink);
+  --bw-primary: var(--bw-brand);
+  --bw-primary-foreground: var(--bw-brand-ink);
+  --bw-muted: var(--bw-surface-2);
+  --bw-muted-foreground: var(--bw-ink-2);
+  --bw-border: var(--bw-line);
+  --bw-input: var(--bw-line);
+  --bw-ring: rgba(53, 88, 230, 0.22);
+  --bw-radius-small: 4px;
+  --bw-radius-medium: 8px;
+  --bw-radius-large: 16px;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  --shadow-1: 0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 1px rgba(15, 23, 42, 0.03);
+  --shadow-2: 0 14px 32px rgba(15, 23, 42, 0.08);
+
+  --font-sans: Inter, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --font-mono: "SFMono-Regular", "Consolas", "Liberation Mono", monospace;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bw-bg);
+  color: var(--bw-ink);
+  font-family: var(--font-sans);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  line-height: 1.55;
+}
+
+.wireframe-body {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f5f7fb 0%, #eef3fa 100%);
+}
+
+.wf-shell {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 32px;
+}
+
+.wf-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  border: 1px solid var(--bw-line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: var(--shadow-1);
+  backdrop-filter: blur(10px);
+}
+
+.wf-brand {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.wf-brand small {
+  display: block;
+  margin-top: 4px;
+  color: var(--bw-ink-2);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.wf-actions,
+.wf-inline,
+.wf-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.wf-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  padding: 0 14px;
+  border: 1px solid var(--bw-line);
+  border-radius: 999px;
+  background: var(--bw-surface);
+  color: var(--bw-ink-2);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.wf-chip.active {
+  border-color: rgba(53, 88, 230, 0.3);
+  background: rgba(53, 88, 230, 0.12);
+  color: var(--bw-brand);
+}
+
+.wf-chip.warn {
+  border-color: rgba(183, 121, 31, 0.28);
+  background: rgba(183, 121, 31, 0.1);
+  color: var(--bw-state-warning);
+}
+
+.wf-chip.neutral {
+  background: var(--bw-surface-2);
+}
+
+.wf-page {
+  display: grid;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.wf-card,
+.wf-panel,
+.wf-table-card {
+  background: var(--bw-surface);
+  border: 1px solid var(--bw-line);
+  border-radius: 16px;
+  box-shadow: var(--shadow-1);
+}
+
+.wf-card {
+  padding: 28px;
+}
+
+.wf-panel {
+  padding: 24px;
+}
+
+.wf-kicker {
+  color: var(--bw-ink-2);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.wf-title {
+  margin: 10px 0 0;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  font-weight: 650;
+}
+
+.wf-subtitle {
+  margin: 12px 0 0;
+  max-width: 760px;
+  color: var(--bw-ink-2);
+  font-size: 16px;
+}
+
+.wf-grid-2 {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  gap: 24px;
+}
+
+.wf-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.wf-metric {
+  padding: 18px;
+  border: 1px solid var(--bw-line);
+  border-radius: 14px;
+  background: var(--bw-surface);
+}
+
+.wf-metric strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.wf-metric span {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--bw-ink-2);
+}
+
+.wf-hero-visual {
+  min-height: 360px;
+  border: 1px dashed rgba(53, 88, 230, 0.25);
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, rgba(53, 88, 230, 0.05), rgba(53, 88, 230, 0.02)),
+    repeating-linear-gradient(
+      0deg,
+      rgba(216, 224, 236, 0.75) 0,
+      rgba(216, 224, 236, 0.75) 1px,
+      transparent 1px,
+      transparent 28px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(216, 224, 236, 0.6) 0,
+      rgba(216, 224, 236, 0.6) 1px,
+      transparent 1px,
+      transparent 28px
+    );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bw-ink-2);
+  font-size: 14px;
+}
+
+.wf-button,
+.wf-secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.wf-button {
+  background: var(--bw-brand);
+  color: var(--bw-brand-ink);
+  border: 1px solid var(--bw-brand);
+}
+
+.wf-secondary-button {
+  background: var(--bw-surface);
+  color: var(--bw-ink);
+  border: 1px solid var(--bw-line);
+}
+
+.wf-note {
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: var(--bw-surface-2);
+  color: var(--bw-ink-2);
+  font-size: 13px;
+}
+
+.wf-note.warn {
+  background: rgba(183, 121, 31, 0.08);
+  color: var(--bw-state-warning);
+}
+
+.wf-note.error {
+  background: rgba(194, 65, 65, 0.08);
+  color: var(--bw-state-error);
+}
+
+.wf-list {
+  display: grid;
+  gap: 12px;
+}
+
+.wf-list-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 18px;
+  border: 1px solid var(--bw-line);
+  border-radius: 12px;
+  background: var(--bw-surface);
+}
+
+.wf-list-item small,
+.wf-muted {
+  color: var(--bw-ink-2);
+  font-size: 13px;
+}
+
+.wf-table-card {
+  overflow: hidden;
+}
+
+.wf-toolbar {
+  position: sticky;
+  top: 18px;
+  z-index: 2;
+  display: grid;
+  gap: 16px;
+  padding: 20px 22px;
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid var(--bw-line);
+  backdrop-filter: blur(10px);
+}
+
+.wf-toolbar-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr 1.3fr auto;
+  gap: 16px;
+  align-items: end;
+}
+
+.wf-field-label {
+  margin-bottom: 8px;
+  color: var(--bw-ink-2);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.wf-input,
+.wf-select,
+.wf-fake-input {
+  min-height: 44px;
+  width: 100%;
+  padding: 0 14px;
+  border: 1px solid var(--bw-line);
+  border-radius: 10px;
+  background: var(--bw-surface);
+  color: var(--bw-ink);
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+
+.wf-fake-input.dashed {
+  border-style: dashed;
+}
+
+.wf-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.wf-table th,
+.wf-table td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--bw-line);
+  vertical-align: top;
+  font-size: 14px;
+}
+
+.wf-table th {
+  color: var(--bw-ink-2);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  background: rgba(245, 247, 251, 0.82);
+}
+
+.wf-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.wf-tag.warn {
+  background: rgba(183, 121, 31, 0.1);
+  color: var(--bw-state-warning);
+  border-color: rgba(183, 121, 31, 0.18);
+}
+
+.wf-tag.base {
+  background: rgba(85, 98, 122, 0.08);
+  color: var(--bw-ink-2);
+  border-color: rgba(85, 98, 122, 0.12);
+}
+
+.wf-pill-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: var(--bw-surface-2);
+  color: var(--bw-ink);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.wf-status-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 380px;
+  gap: 24px;
+}
+
+.wf-dropzone {
+  min-height: 240px;
+  padding: 32px;
+  border: 2px dashed rgba(53, 88, 230, 0.24);
+  border-radius: 18px;
+  background: linear-gradient(180deg, rgba(53, 88, 230, 0.04), rgba(53, 88, 230, 0.01));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.wf-stepper {
+  display: grid;
+  gap: 10px;
+}
+
+.wf-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--bw-line);
+  background: var(--bw-surface);
+}
+
+.wf-step-index {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  background: rgba(53, 88, 230, 0.1);
+  color: var(--bw-brand);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.wf-split {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 24px;
+}
+
+.wf-preview-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.wf-preview-row {
+  display: grid;
+  grid-template-columns: 72px repeat(6, minmax(0, 1fr));
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: var(--bw-surface-2);
+}
+
+.wf-cell {
+  min-height: 24px;
+  border-radius: 8px;
+  background: rgba(216, 224, 236, 0.95);
+}
+
+.wf-cell.dark {
+  background: rgba(127, 138, 160, 0.8);
+}
+
+.wf-side-note {
+  border-left: 3px solid rgba(53, 88, 230, 0.25);
+  padding-left: 14px;
+  color: var(--bw-ink-2);
+  font-size: 13px;
+}
+
+.wf-empty-state {
+  display: grid;
+  place-items: center;
+  min-height: 360px;
+  padding: 32px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(245, 247, 251, 0.95), rgba(255, 255, 255, 0.95));
+}
+
+.wf-empty-state strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+
+.wf-flow {
+  display: grid;
+  gap: 20px;
+}
+
+.wf-flow-row {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.wf-flow-card {
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid var(--bw-line);
+  background: var(--bw-surface);
+}
+
+.wf-flow-card strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.wf-rationale {
+  border-top: 1px solid var(--bw-line);
+  margin-top: 18px;
+  padding-top: 14px;
+  color: var(--bw-ink-2);
+  font-size: 13px;
+}
+
+.wf-drag-list {
+  display: grid;
+  gap: 12px;
+}
+
+.wf-drag-item {
+  display: grid;
+  grid-template-columns: 26px 1.4fr 1fr 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 16px 18px;
+  border: 1px solid var(--bw-line);
+  border-radius: 14px;
+  background: var(--bw-surface);
+}
+
+.wf-handle {
+  color: var(--bw-ink-3);
+  font-size: 18px;
+}
+
+.wf-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.wf-price-card {
+  padding: 22px;
+  border-radius: 16px;
+  border: 1px solid var(--bw-line);
+  background: var(--bw-surface);
+}
+
+.wf-price-card.active {
+  border-color: rgba(53, 88, 230, 0.26);
+  box-shadow: 0 0 0 2px rgba(53, 88, 230, 0.08);
+}
+
+.wf-price {
+  font-size: 32px;
+  line-height: 1.1;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+}
+
+.wf-center-card {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.wf-result-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 320px;
+  gap: 22px;
+}
+
+.wf-side-panel {
+  padding: 22px;
+  border-left: 1px solid var(--bw-line);
+  background: linear-gradient(180deg, rgba(245, 247, 251, 0.85), rgba(255, 255, 255, 0.96));
+}
+
+.wf-footer {
+  margin-top: 32px;
+  padding: 20px 0 8px;
+  color: var(--bw-ink-3);
+  font-size: 12px;
+}
+
+@media (max-width: 1100px) {
+  .wf-grid-2,
+  .wf-status-layout,
+  .wf-split,
+  .wf-result-layout,
+  .wf-toolbar-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wf-flow-row,
+  .wf-grid-3,
+  .wf-pricing-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── Results & Extraction Review 專用 ── */
+
+/* 排序下拉選單 */
+.wf-select {
+  min-height: 44px;
+  width: 100%;
+  padding: 0 14px;
+  border: 1px solid var(--bw-line);
+  border-radius: 10px;
+  background: var(--bw-surface);
+  color: var(--bw-ink);
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%237f8aa0' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+/* 表格列懸停高亮 */
+.wf-table tbody tr:hover td {
+  background: rgba(53, 88, 230, 0.04);
+}
+
+/* 信心指數標籤 */
+.wf-tag.confidence-high {
+  background: rgba(85, 98, 122, 0.08);
+  color: var(--bw-ink-2);
+  border: 1px solid rgba(85, 98, 122, 0.12);
+  border-radius: var(--radius-full);
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.wf-tag.confidence-mid {
+  background: rgba(183, 121, 31, 0.1);
+  color: var(--bw-state-warning);
+  border: 1px solid rgba(183, 121, 31, 0.18);
+  border-radius: var(--radius-full);
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+.wf-tag.confidence-low {
+  background: rgba(194, 65, 65, 0.1);
+  color: var(--bw-state-error);
+  border: 1px solid rgba(194, 65, 65, 0.2);
+  border-radius: var(--radius-full);
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* 操作連結 */
+.wf-action-link {
+  color: var(--bw-brand);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.wf-action-link:hover {
+  text-decoration: underline;
+}
+
+/* Results 控制列 */
+.wf-control-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 20px;
+  background: var(--bw-surface);
+  border: 1px solid var(--bw-line);
+  border-radius: 16px;
+  margin-bottom: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* Results 表格卡片 */
+.wf-table-card {
+  background: var(--bw-surface);
+  border: 1px solid var(--bw-line);
+  border-radius: 16px;
+  overflow: hidden;
+  flex: 1;
+  min-width: 0;
+}
+
+/* Results 側欄 */
+.wf-results-aside {
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Extraction Review 修正展開行 */
+.wf-extraction-detail {
+  background: var(--bw-surface-2);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 8px;
+}
+.wf-extraction-detail table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.wf-extraction-detail th {
+  text-align: left;
+  color: var(--bw-ink-3);
+  font-weight: 500;
+  padding: 4px 8px;
+  border-bottom: 1px solid var(--bw-line);
+}
+.wf-extraction-detail td {
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--bw-line);
+}
+.wf-extraction-detail tr:last-child td {
+  border-bottom: none;
+}
+.wf-extraction-detail .needs-review {
+  color: var(--bw-state-error);
+  font-weight: 600;
+}
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--bw-background);
+    --color-foreground: var(--bw-foreground);
+    --color-card: var(--bw-card);
+    --color-card-foreground: var(--bw-card-foreground);
+    --color-popover: var(--bw-popover);
+    --color-popover-foreground: var(--bw-popover-foreground);
+    --color-primary: var(--bw-primary);
+    --color-primary-foreground: var(--bw-primary-foreground);
+    --color-muted: var(--bw-muted);
+    --color-muted-foreground: var(--bw-muted-foreground);
+    --color-border: var(--bw-border);
+    --color-input: var(--bw-input);
+    --color-ring: var(--bw-ring);
+    --radius-sm: var(--bw-radius-small);
+    --radius-md: var(--bw-radius-medium);
+    --radius-lg: var(--bw-radius-large);
+  }
+  @layer base {
+    body { background: var(--bw-background); color: var(--bw-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--bw-background); }
+      .text-background { color: var(--bw-background); }
+      .border-background { border-color: var(--bw-background); }
+      .ring-background { --tw-ring-color: var(--bw-background); }
+      .bg-foreground { background-color: var(--bw-foreground); }
+      .text-foreground { color: var(--bw-foreground); }
+      .border-foreground { border-color: var(--bw-foreground); }
+      .ring-foreground { --tw-ring-color: var(--bw-foreground); }
+      .bg-card { background-color: var(--bw-card); }
+      .text-card { color: var(--bw-card); }
+      .border-card { border-color: var(--bw-card); }
+      .ring-card { --tw-ring-color: var(--bw-card); }
+      .bg-card-foreground { background-color: var(--bw-card-foreground); }
+      .text-card-foreground { color: var(--bw-card-foreground); }
+      .border-card-foreground { border-color: var(--bw-card-foreground); }
+      .ring-card-foreground { --tw-ring-color: var(--bw-card-foreground); }
+      .bg-popover { background-color: var(--bw-popover); }
+      .text-popover { color: var(--bw-popover); }
+      .border-popover { border-color: var(--bw-popover); }
+      .ring-popover { --tw-ring-color: var(--bw-popover); }
+      .bg-popover-foreground { background-color: var(--bw-popover-foreground); }
+      .text-popover-foreground { color: var(--bw-popover-foreground); }
+      .border-popover-foreground { border-color: var(--bw-popover-foreground); }
+      .ring-popover-foreground { --tw-ring-color: var(--bw-popover-foreground); }
+      .bg-primary { background-color: var(--bw-primary); }
+      .text-primary { color: var(--bw-primary); }
+      .border-primary { border-color: var(--bw-primary); }
+      .ring-primary { --tw-ring-color: var(--bw-primary); }
+      .bg-primary-foreground { background-color: var(--bw-primary-foreground); }
+      .text-primary-foreground { color: var(--bw-primary-foreground); }
+      .border-primary-foreground { border-color: var(--bw-primary-foreground); }
+      .ring-primary-foreground { --tw-ring-color: var(--bw-primary-foreground); }
+      .bg-muted { background-color: var(--bw-muted); }
+      .text-muted { color: var(--bw-muted); }
+      .border-muted { border-color: var(--bw-muted); }
+      .ring-muted { --tw-ring-color: var(--bw-muted); }
+      .bg-muted-foreground { background-color: var(--bw-muted-foreground); }
+      .text-muted-foreground { color: var(--bw-muted-foreground); }
+      .border-muted-foreground { border-color: var(--bw-muted-foreground); }
+      .ring-muted-foreground { --tw-ring-color: var(--bw-muted-foreground); }
+      .bg-border { background-color: var(--bw-border); }
+      .text-border { color: var(--bw-border); }
+      .border-border { border-color: var(--bw-border); }
+      .ring-border { --tw-ring-color: var(--bw-border); }
+      .bg-input { background-color: var(--bw-input); }
+      .text-input { color: var(--bw-input); }
+      .border-input { border-color: var(--bw-input); }
+      .ring-input { --tw-ring-color: var(--bw-input); }
+      .bg-ring { background-color: var(--bw-ring); }
+      .text-ring { color: var(--bw-ring); }
+      .border-ring { border-color: var(--bw-ring); }
+      .ring-ring { --tw-ring-color: var(--bw-ring); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+</head>
+<body class="wireframe-body">
+  <div class="wf-shell">
+    <header class="wf-topbar">
+      <div class="wf-brand">
+        Brickwise 磚研
+        <small>Results</small>
+      </div>
+      <div class="wf-actions">
+        <span class="wf-pill-count">找到 12 個單位</span>
+        <a class="wf-secondary-button" href="./shortlist.html">心水清單</a>
+        <a class="wf-secondary-button" href="./dashboard.html">返回 Project</a>
+      </div>
+    </header>
+
+    <main class="wf-page">
+      <div class="wf-control-bar">
+        <div class="wf-chip-row">
+          <span class="wf-chip active">標籤說明</span>
+          <span class="wf-chip">顯示圖表</span>
+          <span class="wf-chip">加入 Shortlist</span>
+        </div>
+      </div>
+
+      <div class="wf-result-layout">
+        <!-- 主表格區：與 results-default.html 完全相同 -->
+        <div class="wf-table-card">
+          <div class="wf-toolbar">
+            <div class="wf-toolbar-grid">
+              <div>
+                <div class="wf-field-label">排序</div>
+                <select class="wf-select">
+                  <option>呎價：由平至貴</option>
+                  <option>呎價：由貴至平</option>
+                  <option>總價：由平至貴</option>
+                  <option>總價：由貴至平</option>
+                  <option>面積：由大至小</option>
+                  <option>面積：由小至大</option>
+                </select>
+              </div>
+              <div>
+                <div class="wf-field-label">篩選發展商</div>
+                <div class="wf-fake-input">全部</div>
+              </div>
+              <div>
+                <div class="wf-field-label">篩選座數</div>
+                <div class="wf-fake-input">全部</div>
+              </div>
+              <div>
+                <span class="wf-action-link">清除所有篩選</span>
+              </div>
+            </div>
+          </div>
+
+          <table class="wf-table">
+            <thead>
+              <tr>
+                <th>單位</th>
+                <th>實用面積</th>
+                <th>折實總價</th>
+                <th>呎價（折實）</th>
+                <th>信心指數</th>
+                <th>標記</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>天璽海 3A 座 18 樓 A 室</strong><br>
+                  <small class="wf-muted">3房2廳 · 景觀花園</small>
+                </td>
+                <td>512 呎</td>
+                <td><strong>HK$8.62M</strong></td>
+                <td>HK$16,840/呎</td>
+                <td><span class="wf-tag confidence-high">96%</span></td>
+                <td></td>
+                <td><span class="wf-action-link">加入 Shortlist</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>天璽海 2B 座 11 樓 C 室</strong><br>
+                  <small class="wf-muted">2房2廳 · 景觀內園</small>
+                </td>
+                <td>488 呎</td>
+                <td><strong>HK$8.05M</strong></td>
+                <td>HK$16,496/呎</td>
+                <td><span class="wf-tag confidence-high">94%</span></td>
+                <td><span class="wf-tag warn">不划算高層</span></td>
+                <td><span class="wf-action-link">加入 Shortlist</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>天璽海 3B 座 6 樓 D 室</strong><br>
+                  <small class="wf-muted">2房2廳 · 景觀街道</small>
+                </td>
+                <td>465 呎</td>
+                <td><strong>HK$7.42M</strong></td>
+                <td>HK$15,957/呎</td>
+                <td><span class="wf-tag confidence-mid">85%</span></td>
+                <td><span class="wf-tag base">最低層</span></td>
+                <td><span class="wf-action-link">加入 Shortlist</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>臨海匯 5 座 9 樓 B 室</strong><br>
+                  <small class="wf-muted">3房2廳 · 海景</small>
+                </td>
+                <td>530 呎</td>
+                <td><strong>HK$8.94M</strong></td>
+                <td>HK$16,868/呎</td>
+                <td><span class="wf-tag confidence-mid">87%</span></td>
+                <td></td>
+                <td><span class="wf-action-link">加入 Shortlist</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>臨海匯 5 座 18 樓 A 室</strong><br>
+                  <small class="wf-muted">3房2廳 · 開揚海景</small>
+                </td>
+                <td>528 呎</td>
+                <td><strong>HK$9.45M</strong></td>
+                <td>HK$17,898/呎</td>
+                <td><span class="wf-tag confidence-high">91%</span></td>
+                <td></td>
+                <td><span class="wf-action-link">加入 Shortlist</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>港灣薈 1 座 15 樓 D 室</strong><br>
+                  <small class="wf-muted">2房2廳 · 景觀學校</small>
+                </td>
+                <td>476 呎</td>
+                <td><strong>HK$7.89M</strong></td>
+                <td>HK$16,575/呎</td>
+                <td><span class="wf-tag confidence-low">78%</span></td>
+                <td></td>
+                <td><span class="wf-action-link">加入 Shortlist</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>港灣薈 2 座 G 樓 3 室</strong><br>
+                  <small class="wf-muted">1房2廳 · 景觀商場</small>
+                </td>
+                <td>389 呎</td>
+                <td><strong>HK$5.98M</strong></td>
+                <td>HK$15,372/呎</td>
+                <td><span class="wf-tag confidence-high">98%</span></td>
+                <td><span class="wf-tag base">地下</span></td>
+                <td><span class="wf-action-link">加入 Shortlist</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>港灣薈 1 座 22 樓 A 室</strong><br>
+                  <small class="wf-muted">3房2廳 · 景觀山景</small>
+                </td>
+                <td>512 呎</td>
+                <td><strong>HK$8.78M</strong></td>
+                <td>HK$17,148/呎</td>
+                <td><span class="wf-tag confidence-high">95%</span></td>
+                <td></td>
+                <td><span class="wf-action-link">加入 Shortlist</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>環海曜 6 座 12 樓 C 室</strong><br>
+                  <small class="wf-muted">2房2廳 · 景觀市景</small>
+                </td>
+                <td>442 呎</td>
+                <td><strong>HK$7.21M</strong></td>
+                <td>HK$16,312/呎</td>
+                <td><span class="wf-tag confidence-high">92%</span></td>
+                <td><span class="wf-tag base">Shortlist 標記</span></td>
+                <td><span class="wf-action-link">已加入</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>環海曜 6 座 8 樓 B 室</strong><br>
+                  <small class="wf-muted">2房2廳 · 景觀市景</small>
+                </td>
+                <td>445 呎</td>
+                <td><strong>HK$7.15M</strong></td>
+                <td>HK$16,068/呎</td>
+                <td><span class="wf-tag confidence-mid">84%</span></td>
+                <td><span class="wf-tag warn">不划算高層</span></td>
+                <td><span class="wf-action-link">加入 Shortlist</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>曦海灣 4 座 5 樓 A 室</strong><br>
+                  <small class="wf-muted">3房2廳 · 景觀泳池</small>
+                </td>
+                <td>598 呎</td>
+                <td><strong>HK$9.82M</strong></td>
+                <td>HK$16,421/呎</td>
+                <td><span class="wf-tag confidence-high">97%</span></td>
+                <td></td>
+                <td><span class="wf-action-link">加入 Shortlist</span></td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>曦海灣 4 座 3 樓 D 室</strong><br>
+                  <small class="wf-muted">2房2廳 · 景觀內園</small>
+                </td>
+                <td>418 呎</td>
+                <td><strong>HK$6.68M</strong></td>
+                <td>HK$15,980/呎</td>
+                <td><span class="wf-tag confidence-low">76%</span></td>
+                <td></td>
+                <td><span class="wf-action-link">加入 Shortlist</span></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="wf-rationale" style="margin: 0; padding: 16px 20px; border-top: 1px solid var(--bw-line);">
+            結果以呎價排序，你可忽略系統標籤，自行判斷。所有資料僅供參考，並非投資意見。
+          </div>
+        </div>
+
+        <!-- 說明面板 -->
+        <aside class="wf-card">
+          <div class="wf-kicker">標籤說明</div>
+          <h2 class="wf-title" style="font-size:22px; margin-top:8px;">結果中的標記代表什麼</h2>
+          <p class="wf-subtitle" style="font-size:13px; margin-top:10px;">
+            系統產生的標記僅供協助參考，你可忽略，自行根據實際需求作判斷。
+          </p>
+
+          <div class="wf-list" style="margin-top:20px;">
+            <div class="wf-list-item" style="flex-direction:column; align-items:flex-start;">
+              <div style="margin-bottom:10px;">
+                <span class="wf-tag confidence-high">信心指數</span>
+              </div>
+              <div style="font-size:13px; line-height:1.6;">
+                <div style="margin-bottom:6px;"><strong>&gt;90% 灰</strong> — 系統高度確認，資料可信</div>
+                <div style="margin-bottom:6px;"><strong>80–90% 黃</strong> — 部分欄位需再確認</div>
+                <div><strong>&lt;80% 紅</strong> — 建議在 Extraction Review 修正</div>
+              </div>
+            </div>
+
+            <div class="wf-list-item" style="flex-direction:column; align-items:flex-start;">
+              <div style="margin-bottom:10px;">
+                <span class="wf-tag warn">不划算高層</span>
+              </div>
+              <div style="font-size:13px; line-height:1.6;">
+                相鄰樓層價格升幅達 10% 或以上，你可忽略此標籤自行判斷。
+              </div>
+            </div>
+
+            <div class="wf-list-item" style="flex-direction:column; align-items:flex-start;">
+              <div style="margin-bottom:10px;">
+                <span class="wf-tag base">最低層 / 地下</span>
+              </div>
+              <div style="font-size:13px; line-height:1.6;">
+                屬於全盤最低樓層，你可忽略此標籤自行判斷。
+              </div>
+            </div>
+
+            <div class="wf-list-item" style="flex-direction:column; align-items:flex-start;">
+              <div style="margin-bottom:10px;">
+                <span class="wf-tag base">Shortlist 標記</span>
+              </div>
+              <div style="font-size:13px; line-height:1.6;">
+                已加入心水清單的單位。
+              </div>
+            </div>
+          </div>
+
+          <div class="wf-note" style="margin-top:18px;">
+            系統標記僅供參考，並非投資意見。你可根據實際需求忽略標記，自行作最終判斷。
+          </div>
+
+          <button class="wf-button" style="margin-top:18px; width:100%;" data-dom-id="return-from-explanation">
+            返回結果
+          </button>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="wf-footer">
+      比較結果僅供參考，並非投資意見。
+    </footer>
+  </div>
+</body>
+</html>
