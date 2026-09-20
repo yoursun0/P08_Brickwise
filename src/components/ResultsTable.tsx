@@ -1,11 +1,16 @@
 import { Fragment } from "react";
 import { Heart } from "lucide-react";
-import type { Unit } from "@/lib/types";
+import type { PriceBasis, Unit } from "@/lib/types";
 import { formatHKD, formatSqft } from "@/lib/format";
-import { computePrice, computePsf } from "@/lib/price";
-import type { PriceBasis } from "@/lib/types";
 import { ConfidenceTag } from "./ConfidenceTag";
 import { UnitTag } from "./UnitTag";
+
+function formatUnitLabel(unit: Unit): string {
+  const t = unit.tower?.trim();
+  if (!t) return unit.unit_no;
+  if (/座$/.test(t)) return `${t} ${unit.unit_no}`;
+  return `${t}座 ${unit.unit_no}`;
+}
 
 export interface RowUnit {
   unit: Unit;
@@ -15,7 +20,7 @@ export interface RowUnit {
 
 export function ResultsTable({
   rows,
-  basis,
+  basis: _basis,
   shortlist,
   expandedUnit,
   onToggleShortlist,
@@ -35,6 +40,7 @@ export function ResultsTable({
           <th>加入心水</th>
           <th>樓層</th>
           <th>單位</th>
+          <th>間隔</th>
           <th>實用面積</th>
           <th>折實總價</th>
           <th>折實單呎</th>
@@ -59,7 +65,8 @@ export function ResultsTable({
                   </span>
                 </td>
                 <td>{unit.floor_raw}</td>
-                <td>{unit.tower ? `${unit.tower} ` : ""}{unit.unit_no}</td>
+                <td>{formatUnitLabel(unit)}</td>
+                <td>{unit.layout ?? "—"}</td>
                 <td>{formatSqft(unit.saleable_area_sqft)}</td>
                 <td>{formatHKD(computed_price)}</td>
                 <td>{psf != null ? `${formatHKD(psf)}/呎` : "—"}</td>
@@ -84,7 +91,7 @@ export function ResultsTable({
               </tr>
               {expandedUnit === unit.id && unit.tags.includes("overpriced_high_floor") && (
                 <tr key={`${unit.id}-detail`}>
-                  <td colSpan={8} style={{ background: "var(--bw-surface-2)" }}>
+                  <td colSpan={9} style={{ background: "var(--bw-surface-2)" }}>
                     <div style={{ padding: 8 }}>
                       <UnitTag
                         tag="overpriced_high_floor"

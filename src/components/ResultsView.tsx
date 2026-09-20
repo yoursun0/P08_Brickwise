@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { getClient } from "@/lib/supabase/client";
 import type { Project, Unit, PriceBasis, SortKey } from "@/lib/types";
-import { computePrice, computePsf } from "@/lib/price";
+import { applyTags, computePrice, computePsf } from "@/lib/price";
 import { ResultsTable, type RowUnit } from "./ResultsTable";
 import { PriceBasisSelect } from "./PriceBasisSelect";
 import { SortSelect } from "./SortSelect";
@@ -27,7 +27,8 @@ export function ResultsView({
   const [expandedUnit, setExpandedUnit] = useState<string | null>(null);
 
   const rows: RowUnit[] = useMemo(() => {
-    const withComputed = units.map((u) => {
+    const tagged = applyTags(units, basis);
+    const withComputed = tagged.map((u) => {
       const computed_price = computePrice(u, basis);
       const psf = computePsf(computed_price, u.saleable_area_sqft);
       return { unit: u, computed_price, psf };
@@ -88,14 +89,23 @@ export function ResultsView({
           onShortlistOnly={setShortlistOnly}
           onToggleFilter={setFilters}
         />
-        <PriceBasisSelect value={basis} onChange={setBasis} />
+        <PriceBasisSelect
+          value={basis}
+          onChange={setBasis}
+          columns={project.price_columns ?? []}
+        />
         <SortSelect value={sortKey} onChange={setSortKey} />
         <div className="wf-pill-count"><span>{visible} / {total} 個單位</span></div>
       </div>
 
       <div className="wf-result-layout">
         <div className="wf-table-card">
-          {visible === 0 ? (
+          {total === 0 ? (
+            <div className="wf-empty-state">
+              <strong>尚未有解析結果</strong>
+              <a className="wf-button" href={`/projects/${project.id}/upload`}>上載價單 PDF</a>
+            </div>
+          ) : visible === 0 ? (
             <div className="wf-empty-state">
               <strong>沒有符合篩選條件的單位</strong>
               <button
@@ -118,8 +128,8 @@ export function ResultsView({
           <div className="wf-aside-card highlight">
             <h3>價格基準說明</h3>
             <p>
-              折實單呎 = 折實成交價 ÷ 實用面積。<br />
-              切換價格基準後，所有指標即時重新計算，不會扣除 credits。
+              呎價 = 所選價格基準 ÷ 實用面積。<br />
+              切換價格基準後，呎價、排序與標籤即時重算，不會扣除 credits。
             </p>
             <span className="wf-link">你可自行切換價格基準作出不同維度的比較 →</span>
           </div>

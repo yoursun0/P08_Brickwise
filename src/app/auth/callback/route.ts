@@ -5,7 +5,8 @@ import { cookies } from "next/headers";
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const code = url.searchParams.get("code");
-  const next = url.searchParams.get("next") ?? "/dashboard";
+  const rawNext = url.searchParams.get("next") ?? "/dashboard";
+  const next = rawNext.startsWith("/") && !rawNext.startsWith("//") ? rawNext : "/dashboard";
   if (!code) return NextResponse.redirect(`${url.origin}${next}`);
 
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;

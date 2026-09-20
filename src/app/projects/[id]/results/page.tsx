@@ -17,10 +17,20 @@ export default async function ResultsPage({ params }: { params: Promise<{ id: st
   const { data: shortlist } = await supabase
     .from("shortlist_items").select("unit_id").eq("project_id", id);
 
+  const normalizedProject: Project = {
+    ...(project as Project),
+    price_columns: (project as Project).price_columns ?? [],
+  };
+  const normalizedUnits: Unit[] = ((units as Unit[]) ?? []).map((u) => ({
+    ...u,
+    layout: u.layout ?? null,
+    prices: Array.isArray(u.prices) ? u.prices : [],
+  }));
+
   return (
     <ResultsView
-      project={project as Project}
-      units={(units as Unit[]) ?? []}
+      project={normalizedProject}
+      units={normalizedUnits}
       initialShortlist={((shortlist as ShortlistItem[]) ?? []).map((s) => s.unit_id)}
     />
   );

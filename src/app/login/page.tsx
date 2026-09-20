@@ -16,9 +16,10 @@ export default function LoginPage() {
     setLoading(true);
     try {
       const supabase = getClient();
+      const next = new URLSearchParams(window.location.search).get("next") ?? "/dashboard";
       const { error: err } = await supabase.auth.signInWithOtp({
         email,
-        options: { emailRedirectTo: `${window.location.origin}/auth/callback` },
+        options: { emailRedirectTo: `${window.location.origin}/auth/callback?next=${encodeURIComponent(next)}` },
       });
       if (err) throw err;
       setSent(true);

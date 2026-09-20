@@ -1,7 +1,15 @@
 import Link from "next/link";
 import { LayoutDashboard, LogIn } from "lucide-react";
 
-export function AppShell({ children }: { children: React.ReactNode }) {
+export function AppShell({
+  children,
+  credits,
+  email,
+}: {
+  children: React.ReactNode;
+  credits?: number | null;
+  email?: string | null;
+}) {
   return (
     <div className="wireframe-body">
       <div className="wf-shell">
@@ -11,13 +19,19 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             <small>一手樓價單分析工具</small>
           </Link>
           <div className="wf-actions">
+            {credits != null && (
+              <span className="wf-pill-count">{credits} credits</span>
+            )}
             <Link href="/dashboard" className="wf-secondary-button">
               <LayoutDashboard size={16} style={{ marginRight: 6 }} /> Dashboard
             </Link>
-            <Link href="/pricing" className="wf-secondary-button">購買 Credits</Link>
-            <Link href="/login" className="wf-button">
-              <LogIn size={16} style={{ marginRight: 6 }} /> 登入
-            </Link>
+            {email ? (
+              <span className="wf-muted" style={{ fontSize: 13 }}>{email}</span>
+            ) : (
+              <Link href="/login" className="wf-button">
+                <LogIn size={16} style={{ marginRight: 6 }} /> 登入
+              </Link>
+            )}
           </div>
         </div>
         {children}

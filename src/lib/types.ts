@@ -1,6 +1,17 @@
-export type PriceBasis = "original" | "plan_a" | "plan_b" | "lowest";
+export type PriceBasis = string;
 export type SortKey = "psf_asc" | "total_asc";
 export type UnitTag = "lowest_floor" | "ground_floor" | "overpriced_high_floor";
+
+export interface PriceColumn {
+  key: string;
+  label: string;
+}
+
+export interface NamedPrice {
+  key: string;
+  label: string;
+  amount: number;
+}
 
 export interface Profile {
   id: string;
@@ -14,6 +25,7 @@ export interface Project {
   user_id: string;
   name: string;
   price_basis: PriceBasis;
+  price_columns: PriceColumn[];
   created_at: string;
 }
 
@@ -26,6 +38,7 @@ export interface Document {
   file_hash: string | null;
   status: "uploaded" | "processing" | "succeeded" | "failed";
   extraction_confidence: number | null;
+  error_message: string | null;
 }
 
 export interface Explainability {
@@ -46,7 +59,9 @@ export interface Unit {
   floor_raw: string;
   floor_sort_key: number;
   unit_no: string;
+  layout: string | null;
   saleable_area_sqft: number;
+  prices: NamedPrice[];
   price_original: number | null;
   price_plan_a: number | null;
   price_plan_b: number | null;
