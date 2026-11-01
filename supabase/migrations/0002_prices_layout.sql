@@ -1,3 +1,5 @@
+-- Historical local copy. Live SoT: /workspace/IT/platform/supabase-helic/brickwise_000*.sql
+-- (schema brickwise, trigger on_auth_user_created_brickwise). Do not re-apply this public migration on shared helic projects.
 -- Dynamic price columns + layout. Source of truth is units.prices jsonb.
 
 alter table public.projects
