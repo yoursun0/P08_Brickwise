@@ -93,7 +93,7 @@ function transferablePdfBytes(bytes: Uint8Array): Uint8Array {
 
 async function loadPdf(pdfBytes: Uint8Array) {
   const data = transferablePdfBytes(pdfBytes);
-  return getDocumentProxy(data, { disableWorker: true });
+  return getDocumentProxy(data);
 }
 
 export async function getPdfPageCount(pdfBytes: Uint8Array): Promise<number> {

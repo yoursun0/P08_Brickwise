@@ -23,5 +23,6 @@ export async function getClient() {
         }
       },
     },
+    db: { schema: "brickwise" },
   });
 }
